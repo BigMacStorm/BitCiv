@@ -1,7 +1,11 @@
 class Entity:
 
-    def __init__(self, engine, pos = (0,0)):
+    def __init__(self, engine):
         self.engine = engine
-        self.pos = pos
+        self.lifeTime = 0
+
+    def tick(self, delTime):
+        self.lifeTime += delTime
+        print(self.lifeTime)
 
 
