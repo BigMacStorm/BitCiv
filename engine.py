@@ -5,6 +5,7 @@ import entMgr
 class Engine:
     def __init__(self):
         self.entityMgr = entMgr.EntityMgr(self)
+        self.worldMgr = worldMgr.WorldMgr(self)
 
     def run(self):
         import time

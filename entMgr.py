@@ -1,5 +1,6 @@
 # will handle the entities
 
+# TODO refactor entity class into both a creature class and a food class, maybe a block class
 import entity
 
 class EntityMgr:
