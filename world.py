@@ -2,16 +2,30 @@ class World:
 
     def __init__(self, engine):
         self.engine = engine
-        self.knowledge = []
+        self.knowledge = {}
+        self.worldSize = 10
+        self.rate = 0
 
     def tick(self, delTime):
-        self.lifeTime += delTime
-        print(self.lifeTime)
+        self.rate += delTime
+        if self.rate > 3:
+            self.rate = 0
+            self.getknowledge()
+            self.printMap()
 
-    def getKnowledge(self):
-        # TODO implement this, iterate over entities and store info
-        pass
+    def getknowledge(self):
+        self.knowledge = {}
+        for ent in self.engine.entityMgr.entList:
+            self.knowledge[ent.location] = ent.display
+            print("Adding char to mem")
 
     def printMap(self):
-        # TODO print out map, to be used until viewer is implemented
-        pass
+        print("=========================")
+        for x in range(0, 10):
+            for y in range(0, 10):
+                if (x, y) in self.knowledge:
+                    print(self.knowledge[(x, y)], end='')
+                else:
+                    print(" ", end='')
+            print('')
+        print("=========================")

@@ -1,14 +1,15 @@
 # will handle the entities
 
 # TODO refactor entity class into both a creature class and a food class, maybe a block class
-import entity
+import creature
+
 
 class EntityMgr:
 
     def __init__(self, engine):
         self.engine = engine
         self.entList = []
-        self.entList.append(entity.Entity(self.engine))
+        self.entList.append(creature.Creature(self.engine))
         print("running entity manager")
 
     def tick(self, delTime):

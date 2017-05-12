@@ -1,6 +1,7 @@
 # engine is going to maintain all of the submodules, and will act as the root for the objects.
 
 import entMgr
+import worldMgr
 
 class Engine:
     def __init__(self):
@@ -18,3 +19,4 @@ class Engine:
             self.oldTime = now
 
             self.entityMgr.tick(delTime)
+            self.worldMgr.tick(delTime)
