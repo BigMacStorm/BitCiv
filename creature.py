@@ -1,4 +1,5 @@
 import random
+import string
 
 # TODO implement memory for food locations
 # TODO implement smell function which will change direction to food
@@ -14,6 +15,7 @@ class Creature:
         self.rate = 0
         self.direction = (0, 0)
         self.display = 'x'
+        self.name = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for _ in range(10))
 
     def __str__(self):
         temp = ""
@@ -28,12 +30,19 @@ class Creature:
         temp += "\n"
         return temp
 
+    def __eq__(self, other):
+        if self.name == other.name:
+            return True
+        return False
+
     def tick(self, delTime):
         # print(type(self.location))
         self.health -= delTime
         self.rate += delTime
         if self.rate > 1:
             self.rate = 0
+            if self.health < 0:
+                self.engine.entityMgr.kill_ent(self)
             self.decision()
             print(self)
 
@@ -41,6 +50,8 @@ class Creature:
         if self.state == "idle":
             if self.health < 97:
                 self.state = "hungry"
+        elif self.health < 0:
+                self.state = "dead"
         elif self.state == "hungry":
             if self.health > 97:
                 self.state = "idle"

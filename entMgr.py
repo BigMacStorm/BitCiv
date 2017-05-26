@@ -16,3 +16,7 @@ class EntityMgr:
         for ent in self.entList:
             ent.tick(delTime)
 
+    def kill_ent(self, passed):
+        self.entList.remove(passed)
+
+
