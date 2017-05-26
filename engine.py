@@ -3,20 +3,21 @@
 import entMgr
 import worldMgr
 
+
 class Engine:
     def __init__(self):
-        self.entityMgr = entMgr.EntityMgr(self)
         self.worldMgr = worldMgr.WorldMgr(self)
+        self.entityMgr = entMgr.EntityMgr(self)
 
         self.world_refresh_rate = 0.5
         self.ent_refresh_rate = 1
+        self.world_size = 20
 
     def run(self):
         import time
 
         self.oldTime = time.time()
-        self.runTime = 0
-        while(True):
+        while True:
             now = time.time()
             delTime = now - self.oldTime
             self.oldTime = now

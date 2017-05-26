@@ -42,9 +42,6 @@ class EntityMgr:
             second = 1
         elif two.location[1] < one.location[1]:
             second = -1
-        print("Found")
-        print(first)
-        print(second)
         return first, second
 
 

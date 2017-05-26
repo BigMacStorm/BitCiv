@@ -1,4 +1,3 @@
-import os
 
 
 class World:
@@ -6,7 +5,7 @@ class World:
     def __init__(self, engine):
         self.engine = engine
         self.knowledge = {}
-        self.worldSize = 10
+        self.worldSize = 20
         self.rate = 0
 
     def tick(self, delTime):
@@ -22,8 +21,6 @@ class World:
             self.knowledge[ent.location] = ent.display
 
     def printMap(self):
-        # I feel unsure about using the system call, only here until API stuff works
-        os.system('cls' if os.name == 'nt' else 'clear')
         print("=========================")
         for x in range(0, self.worldSize+1):
             for y in range(0, self.worldSize+1):

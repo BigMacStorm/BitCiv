@@ -31,6 +31,6 @@ class Food:
             print(self)
 
     def generate_location(self):
-        return random.randint(0, 10), \
-               random.randint(0, 10)
+        return random.randint(0, self.engine.worldMgr.world.worldSize), \
+               random.randint(0, self.engine.worldMgr.world.worldSize)
 

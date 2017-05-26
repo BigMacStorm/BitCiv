@@ -3,7 +3,6 @@ import string
 import food
 
 # TODO implement memory for food locations
-# TODO implement smell function which will change direction to food
 
 
 class Creature:
@@ -23,7 +22,9 @@ class Creature:
 
     def __str__(self):
         temp = ""
-        temp += "Location is: "
+        temp += "Name is: "
+        temp += str(self.name)
+        temp += "\nLocation is: "
         temp += str(self.location)
         temp += "\nHealth: "
         temp += str(self.health)
@@ -50,6 +51,7 @@ class Creature:
             print(self)
 
     def decision(self):
+        # this is a damn mess
         if self.state == "idle":
             if self.health < self.hunger*self.max_health:
                 self.state = "hungry"
@@ -70,7 +72,8 @@ class Creature:
         self.move()
 
     def generate_location(self):
-        return random.randint(0, 10), random.randint(0, 10)
+        return random.randint(0, self.engine.worldMgr.world.worldSize), \
+               random.randint(0, self.engine.worldMgr.world.worldSize)
 
     def eat(self, found_food):
         difference = self.max_health - self.health
