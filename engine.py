@@ -8,6 +8,9 @@ class Engine:
         self.entityMgr = entMgr.EntityMgr(self)
         self.worldMgr = worldMgr.WorldMgr(self)
 
+        self.world_refresh_rate = 0.5
+        self.ent_refresh_rate = 1
+
     def run(self):
         import time
 
