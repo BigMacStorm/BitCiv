@@ -1,6 +1,7 @@
 import random
 import string
 import food
+import math
 
 # TODO implement memory for food locations
 
@@ -50,6 +51,23 @@ class Creature:
             self.decision()
             print(self)
 
+    def find_distance(self, two):
+        return math.sqrt(math.pow((two.location[0] - self.location[0]), 2) +
+                         math.pow((two.location[1] - self.location[1]), 2))
+
+    def find_direction(self, two):
+        first = 0
+        second = 0
+        if two.location[0] > self.location[0]:
+            first = 1
+        elif two.location[0] < self.location[0]:
+            first = -1
+        if two.location[1] > self.location[1]:
+            second = 1
+        elif two.location[1] < self.location[1]:
+            second = -1
+        return first, second
+
     def decision(self):
         # this is a damn mess
         if self.state == "idle":
@@ -97,7 +115,7 @@ class Creature:
         else:
             smell = self.sniff()
             if smell is not None:
-                self.direction = self.engine.entityMgr.direction(self, smell)
+                self.direction = self.find_direction(smell)
                 print("Smelt food, moving towards it: " + str(self.direction[0]) + " " + str(self.direction[1]))
             self.move()
 
@@ -116,7 +134,7 @@ class Creature:
                     if best is None and temp is not 0:
                         best = temp
                     elif best is not None and temp is not 0:
-                        if self.engine.entityMgr.distance(self, best) > self.engine.entityMgr.distance(self, temp):
+                        if self.find_distance(best) > self.find_distance(temp):
                             best = temp
         return best
 

@@ -2,10 +2,12 @@
 
 import entMgr
 import worldMgr
+import configMgr
 
 
 class Engine:
     def __init__(self):
+        self.configMgr = configMgr.ConfigMgr(self)
         self.worldMgr = worldMgr.WorldMgr(self)
         self.entityMgr = entMgr.EntityMgr(self)
 
