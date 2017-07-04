@@ -1,6 +1,6 @@
 # will handle the configuration data
 
-import ConfigParser
+#import ConfigParser
 import io
 
 
@@ -12,7 +12,7 @@ class ConfigMgr:
         print("loading configuration data")
 
 
-        with open("config.ini") as file:
-            config_file = file.read()
-        config = ConfigParser.RawConfigParser(allow_no_value=True)
-        config.readfp(io.BytesIO(config_file))
+        #with open("config.ini") as file:
+        #    config_file = file.read()
+        #config = ConfigParser.RawConfigParser(allow_no_value=True)
+        #config.readfp(io.BytesIO(config_file))

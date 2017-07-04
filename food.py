@@ -28,7 +28,8 @@ class Food:
             self.rate = 0
             if self.health < 0:
                 self.engine.entityMgr.kill_ent(self)
-            print(self)
+                self.engine.entityMgr.food_count -= 1
+            #print(self)
 
     def generate_location(self):
         return random.randint(0, self.engine.worldMgr.world.worldSize), \

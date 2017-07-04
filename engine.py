@@ -11,9 +11,10 @@ class Engine:
         self.worldMgr = worldMgr.WorldMgr(self)
         self.entityMgr = entMgr.EntityMgr(self)
 
-        self.world_refresh_rate = 0.5
-        self.ent_refresh_rate = 1
-        self.world_size = 20
+        self.world_refresh_rate = 1
+        self.ent_refresh_rate = 0.5
+        self.world_size = 10
+        self.oldTime = 0;
 
     def run(self):
         import time
@@ -21,8 +22,7 @@ class Engine:
         self.oldTime = time.time()
         while True:
             now = time.time()
-            delTime = now - self.oldTime
+            self.entityMgr.tick(now - self.oldTime)
+            self.worldMgr.tick(now - self.oldTime)
             self.oldTime = now
 
-            self.entityMgr.tick(delTime)
-            self.worldMgr.tick(delTime)

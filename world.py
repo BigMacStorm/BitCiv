@@ -5,7 +5,7 @@ class World:
     def __init__(self, engine):
         self.engine = engine
         self.knowledge = {}
-        self.worldSize = 20
+        self.worldSize = 15
         self.rate = 0
 
     def tick(self, delTime):
@@ -14,6 +14,8 @@ class World:
             self.rate = 0
             self.getknowledge()
             self.printMap()
+            print(self.engine.entityMgr.creature_count)
+            print(self.engine.entityMgr.food_count)
 
     def getknowledge(self):
         self.knowledge = {}
