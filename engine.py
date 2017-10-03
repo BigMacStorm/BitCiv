@@ -14,7 +14,7 @@ class Engine:
         self.world_refresh_rate = 1
         self.ent_refresh_rate = 0.5
         self.world_size = 10
-        self.oldTime = 0;
+        self.oldTime = 0
 
     def run(self):
         import time

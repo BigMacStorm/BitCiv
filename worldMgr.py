@@ -11,4 +11,4 @@ class WorldMgr:
         print("running world manager")
 
     def tick(self, delTime):
-        self.world.tick(delTime)
+        pass
