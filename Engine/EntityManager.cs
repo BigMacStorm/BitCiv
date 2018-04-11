@@ -11,17 +11,17 @@ namespace Engine
     {
         public Engine _Engine;
 
-        public List<Guid>[,] EntityMap;
+        public HashSet<Guid>[,] EntityMap;
         public Dictionary<Guid, Ant> EntityList;
 
         public EntityManager(Engine engine)
         {
             _Engine = engine;
 
-            EntityMap = new List<Guid>[(int)_Engine.WorldSize,(int)_Engine.WorldSize];
+            EntityMap = new HashSet<Guid>[(int)_Engine.WorldSize,(int)_Engine.WorldSize];
             for (int x = 0; x < _Engine.WorldSize; x++)
                 for (int y = 0; y < _Engine.WorldSize; y++)
-                    EntityMap[x, y] = new List<Guid>();
+                    EntityMap[x, y] = new HashSet<Guid>();
 
             EntityList = new Dictionary<Guid, Ant>();
         }
