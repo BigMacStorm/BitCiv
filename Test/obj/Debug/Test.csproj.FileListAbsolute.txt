@@ -1,0 +1,10 @@
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\bin\Debug\Test.exe.config
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\bin\Debug\Test.exe
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\bin\Debug\Test.pdb
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\bin\Debug\Engine.dll
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\bin\Debug\Engine.pdb
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\obj\Debug\Test.exe
+C:\Users\BigMac\Documents\GitHub\BitCiv\Test\obj\Debug\Test.pdb

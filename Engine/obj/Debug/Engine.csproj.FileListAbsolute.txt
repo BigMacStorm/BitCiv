@@ -1,0 +1,6 @@
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\bin\Debug\Engine.dll
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\bin\Debug\Engine.pdb
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\obj\Debug\Engine.csprojResolveAssemblyReference.cache
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\obj\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\obj\Debug\Engine.dll
+C:\Users\BigMac\Documents\GitHub\BitCiv\Engine\obj\Debug\Engine.pdb
