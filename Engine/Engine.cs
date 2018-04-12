@@ -12,7 +12,7 @@ namespace Engine
         public EntityManager EntMgr;
 
         public float WorldSize = 100;
-        public int InitialEntityCount = 20;
+        public int InitialEntityCount = 2;
 
         public Engine()
         {
@@ -20,7 +20,16 @@ namespace Engine
 
             EntMgr = new EntityManager(this);
             EntMgr.Populate();
-            //MgrList.Add(EntMgr);
+            MgrList.Add(EntMgr);
+
+            while (true)
+            {
+                foreach (IEngineComponent comp in MgrList)
+                {
+                    comp.Tick();
+
+                }
+            }
         }
     }
 }

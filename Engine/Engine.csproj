@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityManager\Coordinates.cs" />
+    <Compile Include="EntityManager\EventEntityPositionUpdate.cs" />
     <Compile Include="StatesEnum.cs" />
     <Compile Include="Engine.cs" />
-    <Compile Include="Ant.cs" />
-    <Compile Include="EntityManager.cs" />
+    <Compile Include="EntityManager\Ant.cs" />
+    <Compile Include="EntityManager\EntityManager.cs" />
     <Compile Include="IEngineComponent.cs" />
     <Compile Include="NeuralNet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

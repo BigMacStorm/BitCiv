@@ -32,22 +32,25 @@ namespace Engine
             {
                 Ant temp = new Ant(_Engine);
                 EntityList.Add(temp.id, temp);
+                temp.OnUpdatePosition += new EventPositionUpdateHandler(UpdatePosition);
             }
         }
 
-        public void RemoveFromMap(Ant sent)
+        private void UpdatePosition(object sender, EventEntityPositionArgs e)
         {
-            EntityMap[sent.Location.RelativeX, sent.Location.RelativeY].Remove(sent.id);
-        }
-
-        public void AddToMap(Ant sent)
-        {
-            EntityMap[sent.Location.RelativeX, sent.Location.RelativeY].Add(sent.id);
+            if (e.OldLocation.RelativeY != -1)
+            {
+                EntityMap[e.OldLocation.RelativeX, e.OldLocation.RelativeY].Remove(((Ant)sender).id);
+                EntityMap[e.NewLocation.RelativeX, e.NewLocation.RelativeY].Add(((Ant)sender).id);
+            }
         }
 
         public void Tick()
         {
-            
+            foreach (var ant in EntityList)
+            {
+                ant.Value.Tick();
+            }
         }
     }
 }
