@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Engine.Engine test = new Engine.Engine();
+            var test = new Engine.Engine();
         }
     }
 }

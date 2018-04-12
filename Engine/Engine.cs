@@ -24,7 +24,7 @@ namespace Engine
 
             while (true)
             {
-                foreach (IEngineComponent comp in MgrList)
+                foreach (var comp in MgrList)
                 {
                     comp.Tick();
 

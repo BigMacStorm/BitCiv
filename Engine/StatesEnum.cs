@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    enum State
+    internal enum State
     {
         Idle,
         Forage,

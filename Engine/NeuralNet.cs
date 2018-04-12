@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class NeuralNet
+    internal class NeuralNet
     {
     }
 }

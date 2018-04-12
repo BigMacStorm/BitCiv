@@ -8,24 +8,15 @@ namespace Engine
 {
     public class EventEntityPositionArgs : EventArgs
     {
-        private Coordinates oldLocation;
-        private Coordinates newLocation;
-
         public EventEntityPositionArgs(Coordinates before, Coordinates now)
         {
-            oldLocation = before;
-            newLocation = now;
+            OldLocation = before;
+            NewLocation = now;
         }
 
-        public Coordinates OldLocation
-        {
-            get { return oldLocation; }
-        }
+        public Coordinates OldLocation { get; }
 
-        public Coordinates NewLocation
-        {
-            get { return newLocation; }
-        }
+        public Coordinates NewLocation { get; }
     }
 
     public delegate void EventPositionUpdateHandler(object sender, EventEntityPositionArgs args);
