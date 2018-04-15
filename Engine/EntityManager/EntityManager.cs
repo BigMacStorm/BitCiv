@@ -11,19 +11,20 @@ namespace Engine
     {
         public Engine Engine;
 
-        public HashSet<Guid>[,] EntityMap;
-        public Dictionary<Guid, Ant> EntityList;
+        public EntityStateStruct State;
+
+        public event EventHandler OnStateUpdate;
 
         public EntityManager(Engine engine)
         {
             Engine = engine;
 
-            EntityMap = new HashSet<Guid>[(int)Engine.WorldSize,(int)Engine.WorldSize];
+            State.EntityMap = new HashSet<Guid>[(int)Engine.WorldSize,(int)Engine.WorldSize];
             for (var x = 0; x < Engine.WorldSize; x++)
                 for (var y = 0; y < Engine.WorldSize; y++)
-                    EntityMap[x, y] = new HashSet<Guid>();
+                    State.EntityMap[x, y] = new HashSet<Guid>();
 
-            EntityList = new Dictionary<Guid, Ant>();
+            State.EntityList = new Dictionary<Guid, Ant>();
         }
 
         public void Populate()
@@ -31,24 +32,26 @@ namespace Engine
             for (var x = 0; x < Engine.InitialEntityCount; x++)
             {
                 var temp = new Ant(Engine);
-                EntityList.Add(temp.Id, temp);
-                temp.OnUpdatePosition += new EventPositionUpdateHandler(UpdatePosition);
+                State.EntityList.Add(temp.Id, temp);
+                temp.OnUpdatePosition += UpdatePosition;
             }
         }
 
         private void UpdatePosition(object sender, EventEntityPositionArgs e)
         {
             if (e.OldLocation.RelativeY == -1) return;
-            EntityMap[e.OldLocation.RelativeX, e.OldLocation.RelativeY].Remove(((Ant)sender).Id);
-            EntityMap[e.NewLocation.RelativeX, e.NewLocation.RelativeY].Add(((Ant)sender).Id);
+            State.EntityMap[e.OldLocation.RelativeX, e.OldLocation.RelativeY].Remove(((Ant)sender).Id);
+            State.EntityMap[e.NewLocation.RelativeX, e.NewLocation.RelativeY].Add(((Ant)sender).Id);
+            OnStateUpdate?.Invoke(this, EventArgs.Empty);
         }
 
         public void Tick()
         {
-            foreach (var ant in EntityList)
+            foreach (var ant in State.EntityList)
             {
                 ant.Value.Tick();
             }
+            OnStateUpdate?.Invoke(this, EventArgs.Empty);
         }
     }
 }

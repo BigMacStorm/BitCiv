@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Engine
 {
-    class NetworkManager : IEngineComponent
+    public class NetworkManager : IEngineComponent
     {
         //this is going to host websockets/rest api endpoint.
+        public EntityStateStruct EntityState;
 
         /*
          *
@@ -25,6 +26,14 @@ namespace Engine
         public void Tick()
         {
             
+        }
+
+        public void UpdateState(object sender, EventArgs e)
+        {
+            if (sender is EntityManager)
+            {
+                EntityState = ((EntityManager) sender).State;
+            }
         }
     }
 }

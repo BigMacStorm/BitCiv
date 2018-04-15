@@ -8,8 +8,13 @@ namespace Engine
 {
     public class Engine
     {
+        //TODO: Create config manager and inject into other managers
+        //TODO: Create world manager
+        //TODO: Have net manager invoke owin stuff
+
         private List<IEngineComponent> MgrList;
-        public EntityManager EntMgr;
+        private EntityManager EntMgr;
+        private NetworkManager NetMgr;
 
         public float WorldSize = 100;
         public int InitialEntityCount = 2;
@@ -19,15 +24,19 @@ namespace Engine
             MgrList = new List<IEngineComponent>();
 
             EntMgr = new EntityManager(this);
+            NetMgr = new NetworkManager();
             EntMgr.Populate();
             MgrList.Add(EntMgr);
+            MgrList.Add(NetMgr);
+
+            //StateUpdate subscriptions
+            EntMgr.OnStateUpdate += NetMgr.UpdateState;
 
             while (true)
             {
                 foreach (var comp in MgrList)
                 {
                     comp.Tick();
-
                 }
             }
         }

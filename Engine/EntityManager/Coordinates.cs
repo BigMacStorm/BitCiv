@@ -20,7 +20,7 @@
             if (ActualX > 100) ActualX -= 100;
             if (ActualY > 100) ActualY -= 100;
             if (ActualX < 0) ActualX += 100;
-            if (ActualY > 0) ActualY += 100;
+            if (ActualY < 0) ActualY += 100;
             RelativeX = (int)ActualX;
             RelativeY = (int)ActualY;
         }

@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityManager\Coordinates.cs" />
+    <Compile Include="EntityManager\EntityStateStruct.cs" />
     <Compile Include="EntityManager\EventEntityPositionUpdate.cs" />
+    <Compile Include="NetworkManager.cs" />
     <Compile Include="StatesEnum.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EntityManager\Ant.cs" />
