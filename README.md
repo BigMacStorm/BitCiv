@@ -13,9 +13,13 @@ Each ANT is going to have its own NN. When an ant decides to take the breed acti
 The NN will take the state of the ant as an input layer, and the output layer will consist of a single int between 1 and X, X being the number of action states. These states are currently something akin to: Idle, Attack, Forage (look for food/water to store in memory), Drink (drink water if near, or move towards closest known water that wasnt seen too long ago), Eat (same idea as drink, but for food), Run (run away from another ANT or a possible predator), Play (ANTs who play will follow another ANT around, and remember them as a friend), Mate (will attempt to mate with another ANT, which could either result in offspring, the other ant fleeing, or even an attack). 
 
 Each section of the game will be handled by a manager. Currently the managers are:
+
 Entity manager - Will handle all ants and food.
+
 World manager - Will handle world events, such as growth of trees (obstacles), water appearing after a rain event, food growing, and in the event of mass extinction, creation of a new world with new entities
+
 Network manager - The network manager keeps a running list of the state of each other manager, and provides it through self hosted websockets, which will allow a visual interface for the ants at a later point
+
 More possibly TBD
 
 The engine itself will run each manager, and will only be directly handled by the top level model, which will host a simple UI for controlling the simulation through a form (hopefully using a simple MVVM set up)
