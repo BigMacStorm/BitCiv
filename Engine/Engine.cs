@@ -12,8 +12,8 @@ namespace Engine
         //TODO: Create world manager
         //TODO: Have net manager invoke owin stuff
 
-        private List<IEngineComponent> MgrList;
-        private EntityManager EntMgr;
+        private readonly List<IEngineComponent> MgrList;
+        private readonly EntityManager EntMgr;
         private NetworkManager NetMgr;
 
         public float WorldSize = 100;
