@@ -1,17 +1,21 @@
 ﻿using System;
+using Microsoft.Owin.Hosting;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Engine
 {
-    public class NetworkManager : IEngineComponent
-    {
-        //this is going to host websockets/rest api endpoint.
-        public EntityStateStruct EntityState;
+	public class NetworkManager : IEngineComponent
+	{
+		//this is going to host websockets/rest api endpoint.
+		public EntityStateStruct EntityState;
 
-        /*
+		private IDisposable app;
+
+		/*
          *
          * Here is how this is going to work:
          * Entity manager is going to have an function that handles updating entity list.
@@ -23,17 +27,25 @@ namespace Engine
          *
          *
          */
-        public void Tick()
-        {
-            
-        }
+		public void Tick()
+		{
 
-        public void UpdateState(object sender, EventArgs e)
-        {
-            if (sender is EntityManager)
-            {
-                EntityState = ((EntityManager) sender).State;
-            }
-        }
-    }
+		}
+
+		public NetworkManager()
+		{
+			WebApp.Start<Startup>(url: "http://*:12345");
+		}
+
+		public void UpdateState(object sender, EventArgs e)
+		{
+			if (sender is EntityManager)
+			{
+				EntityState = ((EntityManager)sender).State;
+			}
+		}
+
+
+	}
 }
+

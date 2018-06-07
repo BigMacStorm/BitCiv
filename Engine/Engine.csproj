@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Engine</RootNamespace>
     <AssemblyName>Engine</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,7 +43,9 @@
     <Compile Include="EntityManager\Coordinates.cs" />
     <Compile Include="EntityManager\EntityStateStruct.cs" />
     <Compile Include="EntityManager\EventEntityPositionUpdate.cs" />
-    <Compile Include="NetworkManager.cs" />
+    <Compile Include="NetworkManager\Startup.cs" />
+    <Compile Include="NetworkManager\NetworkManager.cs" />
+    <Compile Include="NetworkManager\ValuesController.cs" />
     <Compile Include="StatesEnum.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="EntityManager\Ant.cs" />
@@ -51,6 +53,20 @@
     <Compile Include="IEngineComponent.cs" />
     <Compile Include="NeuralNet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Owin">
+      <Version>5.2.6</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Hosting">
+      <Version>4.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
